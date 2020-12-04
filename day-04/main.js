@@ -1,7 +1,7 @@
 const fs = require("fs");
 
-let path = process.cwd();
-let buffer = fs.readFileSync(`${path}/data.txt`);
+let path = process.argv[1].replace("/main.js", "");
+let buffer = fs.readFileSync(`${path}/input.txt`);
 let rows = buffer.toString().trimEnd()
   .split("\n\n").join("\n=====\n") // replace two line break's with ====='s
   .split("\n").join(" ") // replace all line-breaks with space's

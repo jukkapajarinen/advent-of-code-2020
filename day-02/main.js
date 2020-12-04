@@ -1,7 +1,7 @@
 const fs = require("fs");
 
-let path = process.cwd();
-let buffer = fs.readFileSync(`${path}/data.txt`);
+let path = process.argv[1].replace("/main.js", "");
+let buffer = fs.readFileSync(`${path}/input.txt`);
 let rows = buffer.toString().split("\n").filter(row => row.length > 0);
 
 let validCount = 0;

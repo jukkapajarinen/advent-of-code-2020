@@ -7,6 +7,26 @@ My Advent of Code solutions for the year 2020 written in JavaScript.
 - [day-03/main.js](./day-03/main.js) 🌟🌟
 - [day-04/main.js](./day-04/main.js) 🌟🌟
 - [day-05/main.js](./day-05/main.js) 🌟🌟
+- ~~day-06/main.js~~
+- ~~day-07/main.js~~
+- ~~day-08/main.js~~
+- ~~day-09/main.js~~
+- ~~day-10/main.js~~
+- ~~day-11/main.js~~
+- ~~day-12/main.js~~
+- ~~day-13/main.js~~
+- ~~day-14/main.js~~
+- ~~day-15/main.js~~
+- ~~day-16/main.js~~
+- ~~day-17/main.js~~
+- ~~day-18/main.js~~
+- ~~day-19/main.js~~
+- ~~day-20/main.js~~
+- ~~day-21/main.js~~
+- ~~day-22/main.js~~
+- ~~day-23/main.js~~
+- ~~day-24/main.js~~
+- ~~day-25/main.js~~
 
 ## How to run?
 

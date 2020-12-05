@@ -5,6 +5,7 @@ let buffer = fs.readFileSync(`${path}/input.txt`);
 let rows = buffer.toString().trimEnd().split("\n");
 
 let highestSeat = 0;
+let seatIds = [];
 rows.forEach(boardingPass => {
   let row = boardingPass.substr(0, 7).split("");
   let column = boardingPass.substr(7, 3).split("");
@@ -36,8 +37,20 @@ rows.forEach(boardingPass => {
   let seatId = rowId * 8 + columnId;
 
   highestSeat = (highestSeat < seatId) ? seatId : highestSeat;
+  seatIds.push(seatId);
 
   console.log(boardingPass, rowId, columnId, seatId);
 });
 
 console.log(`Highest seat ID: ${highestSeat} (part 1)`);
+
+let mySeatId = 0;
+seatIds.sort((a, b) => a - b);
+for (let i = 0; i < seatIds.length; i++) {
+  if (seatIds.indexOf(seatIds[i] + 1) === -1) {
+    mySeatId = seatIds[i] + 1;
+    break;
+  }
+}
+
+console.log(`My seat ID: ${mySeatId} (part 2)`);

@@ -2,11 +2,11 @@
 
 My Advent of Code solutions for the year 2020 written in JavaScript.
 
-- [day-01/main.js](./day-01/main.js) 🌟🌟
-- [day-02/main.js](./day-02/main.js) 🌟🌟
-- [day-03/main.js](./day-03/main.js) 🌟🌟
-- [day-04/main.js](./day-04/main.js) 🌟🌟
-- [day-05/main.js](./day-05/main.js) 🌟🌟
+- [day-01/main.js](./day-01/main.js) 🌟🌟 (Report Repair)
+- [day-02/main.js](./day-02/main.js) 🌟🌟 (Password Philosophy)
+- [day-03/main.js](./day-03/main.js) 🌟🌟 (Toboggan Trajectory)
+- [day-04/main.js](./day-04/main.js) 🌟🌟 (Passport Processing)
+- [day-05/main.js](./day-05/main.js) 🌟🌟 (Binary Boarding)
 - ~~day-06/main.js~~
 - ~~day-07/main.js~~
 - ~~day-08/main.js~~

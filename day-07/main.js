@@ -16,7 +16,7 @@ rows.forEach(rule => {
     color: outerBag,
     bags: innerBags[0] === "no other" ? [] : innerBags.map(b => {
       return {
-        amount: b.split(" ")[0],
+        amount: parseInt(b.split(" ")[0]),
         color: b.split(" ").slice(1).join(" ")
       };
     })
@@ -24,20 +24,28 @@ rows.forEach(rule => {
 });
 
 let whatBagCanContain = (color) => {
-  console.log("whatBagCanContain", color);
   return bagObjects.filter(outerBag => outerBag.bags.some(b => b.color === color));
 };
 
-let recursiveBagCanContain = (startColor) => {
+let recursiveWhatBagCanContain = (startColor) => {
   let bags = whatBagCanContain(startColor);
   bags.forEach(b => {
-    bags = bags.concat(recursiveBagCanContain(b.color));
+    bags = bags.concat(recursiveWhatBagCanContain(b.color));
   });
   return bags;
 };
 
-let shinyGoldPossibilities = [...new Set(recursiveBagCanContain("shiny gold").map(b => b.color))];
+let recursiveSubBagCount = (color) => {
+  let sum = 0;
+  let bag = bagObjects.filter(b => b.color === color)[0];
+  bag.bags.forEach(b => {
+    sum += b.amount + b.amount * recursiveSubBagCount(b.color);
+  });
+  return sum;
+};
 
-console.log(util.inspect(shinyGoldPossibilities, false, null, true));
+let shinyGoldPossibilities = [...new Set(recursiveWhatBagCanContain("shiny gold").map(b => b.color))];
+let shinyGoldSubBags = recursiveSubBagCount("shiny gold");
+
 console.log(`Bag amount: ${shinyGoldPossibilities.length} (part 1)`);
-// console.log(`Another something: ${2} (part 2)`);
+console.log(`Bag amount: ${shinyGoldSubBags} (part 2)`);

@@ -8,7 +8,7 @@ My Advent of Code solutions for the year 2020 written in JavaScript.
 - [day-04/main.js](./day-04/main.js) 🌟🌟 (Passport Processing)
 - [day-05/main.js](./day-05/main.js) 🌟🌟 (Binary Boarding)
 - [day-06/main.js](./day-06/main.js) 🌟🌟 (Custom Customs)
-- [day-07/main.js](./day-07/main.js) 🌟 (Handy Haversacks)
+- [day-07/main.js](./day-07/main.js) 🌟🌟 (Handy Haversacks)
 - ~~day-08/main.js~~
 - ~~day-09/main.js~~
 - ~~day-10/main.js~~

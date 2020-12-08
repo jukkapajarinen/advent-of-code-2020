@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-let path = process.argv[1].replace("/main.js", "");
-let buffer = fs.readFileSync(`${path}/input.txt`);
-let rows = buffer.toString().trimEnd().split("\n");
+const path = process.argv[1].replace("/main.js", "");
+const buffer = fs.readFileSync(`${path}/input.txt`);
+const rows = buffer.toString().trimEnd().split("\n");
 
 rows.forEach(row => {
   console.log(row);

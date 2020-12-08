@@ -1,3 +1,4 @@
+const util = require('util');
 const fs = require("fs");
 
 const path = process.argv[1].replace("/main.js", "");

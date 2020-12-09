@@ -1,6 +1,6 @@
 # Advent of Code 2020 🎄
 
-My Advent of Code solutions for the year 2020 written in JavaScript.
+My Advent of Code solutions for the [year 2020](https://adventofcode.com/2020) written in JavaScript.
 
 - [day-01/main.js](./day-01/main.js) 🌟🌟 (Report Repair)
 - [day-02/main.js](./day-02/main.js) 🌟🌟 (Password Philosophy)
@@ -10,7 +10,7 @@ My Advent of Code solutions for the year 2020 written in JavaScript.
 - [day-06/main.js](./day-06/main.js) 🌟🌟 (Custom Customs)
 - [day-07/main.js](./day-07/main.js) 🌟🌟 (Handy Haversacks)
 - [day-08/main.js](./day-08/main.js) 🌟🌟 (Handheld Halting)
-- ~~day-09/main.js~~
+- [day-09/main.js](./day-09/main.js) 🌟 (Encoding Error)
 - ~~day-10/main.js~~
 - ~~day-11/main.js~~
 - ~~day-12/main.js~~

@@ -6,17 +6,40 @@ const buffer = fs.readFileSync(`${path}/input.txt`);
 const rows = buffer.toString().trimEnd().split("\n");
 const numbers = rows.map(x => parseInt(x)).sort((a, b) => a - b);
 
-let ones = [0];
-let threes = [numbers[numbers.length-1]];
-for (let i = 0; i < numbers.length - 1; i++) {
-  let diff = numbers[i + 1] - numbers[i];
-  if (diff === 1) {
-    ones.push(numbers[i]);
-  } 
-  else if (diff === 3) {
-    threes.push(numbers[i]);
+let joltDiffsProduct = (joltages) => {
+  let ones = [0];
+  let threes = [joltages[joltages.length-1]];
+  for (let i = 0; i < joltages.length - 1; i++) {
+    let diff = joltages[i + 1] - joltages[i];
+    if (diff === 1) {
+      ones.push(joltages[i]);
+    } 
+    else if (diff === 3) {
+      threes.push(joltages[i]);
+    }
   }
-}
+  return ones.length * threes.length;
+};
 
-console.log(`Something: ${ones.length * threes.length} (part 1)`);
-// console.log(`Another something: ${2} (part 2)`);
+let distinctArrangements = (joltages) => {
+  joltages = [0, ...joltages, joltages[joltages.length - 1] + 3];
+  let multiplier = 1;
+  let incrementer = 0;
+  let arrangements = 1;
+  for (let i = 0; i < joltages.length; i++) {
+    let diff = joltages[i + 1] - joltages[i];
+    if (diff === 1) {
+      multiplier += incrementer;
+      incrementer++;
+    }
+    else if (diff === 3) {
+      arrangements *= multiplier;
+      multiplier = 1;
+      incrementer = 0;
+    }
+  }
+  return arrangements;
+};
+
+console.log(`Ones times threes: ${joltDiffsProduct(numbers)} (part 1)`);
+console.log(`Distinct ways: ${distinctArrangements(numbers)} (part 2)`);

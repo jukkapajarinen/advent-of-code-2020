@@ -13,7 +13,7 @@ My Advent of Code solutions for the [year 2020](https://adventofcode.com/2020) w
 - [day-09/main.js](./day-09/main.js) 🌟🌟 (Encoding Error)
 - [day-10/main.js](./day-10/main.js) 🌟🌟 (Adapter Array)
 - [day-11/main.js](./day-11/main.js) 🌟🌟 (Seating System)
-- [day-12/main.js](./day-12/main.js) 🌟 (Rain Risk)
+- [day-12/main.js](./day-12/main.js) 🌟🌟 (Rain Risk)
 - ~~day-13/main.js~~
 - ~~day-14/main.js~~
 - ~~day-15/main.js~~

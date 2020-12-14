@@ -15,7 +15,7 @@ My Advent of Code solutions for the [year 2020](https://adventofcode.com/2020) w
 - [day-11/main.js](./day-11/main.js) 🌟🌟 (Seating System)
 - [day-12/main.js](./day-12/main.js) 🌟🌟 (Rain Risk)
 - [day-13/main.js](./day-13/main.js) 🌟🌟 (Shuttle Search)
-- ~~day-14/main.js~~
+- [day-14/main.js](./day-14/main.js) 🌟 (Docking Data)
 - ~~day-15/main.js~~
 - ~~day-16/main.js~~
 - ~~day-17/main.js~~

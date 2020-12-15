@@ -1,17 +1,17 @@
 const input = [13,0,10,12,1,5,8];
 
-let playElfGame = input => {
-  let spoken = [...input];
+let playElfGame = (input, target) => {
+  let spoken = new Map(input.map((v, i) => [v, i + 1]));
+  let next = -1;
   let last = input[input.length - 1];
-  for (let turn = input.length; turn < 2020 ; turn++) {
-    prevSpoken = spoken.lastIndexOf(last);
-    prevPrevSpoken = spoken.slice(0, prevSpoken).lastIndexOf(last);
-    let next = (prevSpoken < 0 || prevPrevSpoken < 0) ? 0 : prevSpoken - prevPrevSpoken;
-    spoken.push(next);
-    last = next;
+  for (let turn = input.length; turn < target ; turn++) {
+    let prevSpoken = turn, prevPrevSpoken = spoken.has(last) ? spoken.get(last) : -1;
+    last = prevPrevSpoken < 0 ? 0 : prevSpoken - prevPrevSpoken;
+    spoken.set(next, turn);
+    next = last;
   }
-  return spoken.pop();
+  return last;
 };
 
-console.log(`2020th number: ${playElfGame(input)} (part 1)`);
-// console.log(`Another something: ${2} (part 2)`);
+console.log(`2020th number: ${playElfGame(input, 2020)} (part 1)`);
+console.log(`30000000th number: ${playElfGame(input, 30000000)} (part 2)`);

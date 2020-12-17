@@ -36,7 +36,7 @@ let ticketErrorRate = (rules, tickets) => {
   return invalidSum;
 }
 
-let validTickets = (rules, tickets) => {
+let validTickets = (rules, myTicket, tickets) => {
   let valids = [], current = 0;
   tickets.forEach(ticket => {
     let inRanges = ticket.reduce((a, b) => ({...a, [b]: false}), ticket[0]);
@@ -54,9 +54,22 @@ let validTickets = (rules, tickets) => {
     }
     current++;
   });
-  return valids;
+  return [myTicket, ...valids];
 };
 
-let allTickets = [myTicket, ...validTickets(rules, tickets)];
+let decodeTicket = (ticket, tickets) => {
+  
+  
+  //TODO: decode ticket fields here...
+
+
+  let decoded = ticket.map(v => ["name_here", v]);
+  console.log(decoded);
+  return decoded;
+};
+
 console.log(`Ticket scanning error rate: ${ticketErrorRate(rules, tickets)} (part 1)`);
-// console.log(`Another something: ${2} (part 2)`);
+let allTickets = validTickets(rules, myTicket, tickets);
+let decodedTicket = decodeTicket(myTicket, allTickets);
+let departuresMultiplied = decodedTicket.filter(f => f[0].includes("departure")).reduce((a, b) => a * b[1], 1);
+console.log(`Departures multiplied: ${departuresMultiplied} (part 2)`);

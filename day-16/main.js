@@ -18,9 +18,20 @@ rules = rules.split("\n").map(r => {
 myTicket = myTicket.split("\n").slice(1)[0].split(",").map(v => parseInt(v));
 tickets = tickets.split("\n").slice(1).map(t => t.split(",").map(v => parseInt(v)));
 
-console.log(rules);
-console.log(myTicket);
-console.log(tickets);
+let invalidSum = 0;
+tickets.forEach(ticket => {
+  let inRanges = ticket.reduce((a, b) => ({...a, [b]: false}), ticket[0]);
+  ticket.forEach(number => {
+    rules.forEach(rule => {
+      let inRange = (number >= rule.range1[0] && number <= rule.range1[1] || 
+        number >= rule.range2[0] && number <= rule.range2[1]);
+      if (inRange) {
+        inRanges[number] = true;
+      }
+    });
+  });
+  invalidSum += Object.entries(inRanges).reduce((a, b) => a + (!b[1] ? parseInt(b[0]) : 0), 0);
+});
 
-console.log(`Something: ${1} (part 1)`);
-console.log(`Another something: ${2} (part 2)`);
+console.log(`Ticket scanning error rate: ${invalidSum} (part 1)`);
+// console.log(`Another something: ${2} (part 2)`);

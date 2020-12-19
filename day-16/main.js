@@ -24,8 +24,8 @@ let ticketErrorRate = (rules, tickets) => {
     let inRanges = ticket.reduce((a, b) => ({...a, [b]: false}), ticket[0]);
     ticket.forEach(number => {
       rules.forEach(rule => {
-        let inRange = (number >= rule.range1[0] && number <= rule.range1[1] || 
-          number >= rule.range2[0] && number <= rule.range2[1]);
+        let inRange = ((number >= rule.range1[0] && number <= rule.range1[1]) || 
+          (number >= rule.range2[0] && number <= rule.range2[1]));
         if (inRange) {
           inRanges[number] = true;
         }
@@ -42,8 +42,8 @@ let validTickets = (rules, myTicket, tickets) => {
     let inRanges = ticket.reduce((a, b) => ({...a, [b]: false}), ticket[0]);
     ticket.forEach(number => {
       rules.forEach(rule => {
-        let inRange = (number >= rule.range1[0] && number <= rule.range1[1] || 
-          number >= rule.range2[0] && number <= rule.range2[1]);
+        let inRange = ((number >= rule.range1[0] && number <= rule.range1[1]) || 
+          (number >= rule.range2[0] && number <= rule.range2[1]));
         if (inRange) {
           inRanges[number] = true;
         }
@@ -57,19 +57,49 @@ let validTickets = (rules, myTicket, tickets) => {
   return [myTicket, ...valids];
 };
 
-let decodeTicket = (ticket, tickets) => {
-  
-  
-  //TODO: decode ticket fields here...
+let decodeTicket = (target, tickets, rules) => {
+  let impossibilities = rules.map(r => []), solutionFound = false;
+  while (!solutionFound) {
+    let possibilities = tickets.map(t => [...t.map(n => [])]);
+    tickets.forEach((ticket, idx) => {
+      ticket.forEach((number, idx2) => {
+        rules.forEach(rule => {
+          let inRange = ((number >= rule.range1[0] && number <= rule.range1[1]) || 
+            (number >= rule.range2[0] && number <= rule.range2[1]));
+          if (inRange && !impossibilities[idx2].includes(rule.name)) {
+            possibilities[idx][idx2].push(rule.name);
+          }
+          else if (!impossibilities[idx2].includes(rule.name)) {
+            impossibilities[idx2].push(rule.name);
+          }
+        });
+      });
+    });
 
+    let prevImpossibilities = [...impossibilities];
+    rules.forEach(rule => {
+      prevImpossibilities.forEach((ip, idx) => {
+        if (ip.length === rules.length - 1 && !ip.includes(rule.name)) {
+          impossibilities.forEach((ip2, idx2) => {
+            if (idx !== idx2 && !impossibilities[idx2].includes(rule.name)) {
+              impossibilities[idx2].push(rule.name);
+            }
+          });
+        }
+      });
+    });
+    solutionFound = [].concat(...impossibilities).length === rules.length * (rules.length - 1);
+  }
 
-  let decoded = ticket.map(v => ["name_here", v]);
-  console.log(decoded);
+  let possibilities = impossibilities.map(ip => rules.filter(r => !ip.includes(r.name)).map(r2 => r2.name));
+  let order = [].concat(...possibilities);
+  let decoded = target.map((v, idx) => [order[idx], v]);
   return decoded;
 };
 
 console.log(`Ticket scanning error rate: ${ticketErrorRate(rules, tickets)} (part 1)`);
 let allTickets = validTickets(rules, myTicket, tickets);
-let decodedTicket = decodeTicket(myTicket, allTickets);
+let decodedTicket = decodeTicket(myTicket, allTickets, rules);
+console.log("Decoded ticket:", decodedTicket);
 let departuresMultiplied = decodedTicket.filter(f => f[0].includes("departure")).reduce((a, b) => a * b[1], 1);
 console.log(`Departures multiplied: ${departuresMultiplied} (part 2)`);

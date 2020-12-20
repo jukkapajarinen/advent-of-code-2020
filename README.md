@@ -18,7 +18,7 @@ My Advent of Code solutions for the [year 2020](https://adventofcode.com/2020) w
 - [day-14/main.js](./day-14/main.js) 🌟🌟 (Docking Data)
 - [day-15/main.js](./day-15/main.js) 🌟🌟 (Rambunctious Recitation)
 - [day-16/main.js](./day-16/main.js) 🌟🌟 (Ticket Translation)
-- ~~day-17/main.js~~
+- [day-17/main.js](./day-17/main.js) 🚧 (Conway Cubes)
 - ~~day-18/main.js~~
 - ~~day-19/main.js~~
 - ~~day-20/main.js~~

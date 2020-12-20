@@ -21,7 +21,7 @@ My Advent of Code solutions for the [year 2020](https://adventofcode.com/2020) w
 - [day-17/main.js](./day-17/main.js) 🚧 (Conway Cubes)
 - [day-18/main.js](./day-18/main.js) 🌟🌟 (Operation Order)
 - [day-19/main.js](./day-19/main.js) 🚧 (Monster Messages)
-- [day-20/main.js](./day-20/main.js) 🚧 (Jurassic Jigsaw)
+- [day-20/main.js](./day-20/main.js) 🌟 (Jurassic Jigsaw)
 - ~~day-21/main.js~~
 - ~~day-22/main.js~~
 - ~~day-23/main.js~~

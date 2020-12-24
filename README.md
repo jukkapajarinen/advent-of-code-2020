@@ -25,7 +25,7 @@ My Advent of Code solutions for the [year 2020](https://adventofcode.com/2020) w
 - [day-21/main.js](./day-21/main.js) 🚧 (Allergen Assessment)
 - [day-22/main.js](./day-22/main.js) 🚧 (Crab Combat)
 - [day-23/main.js](./day-23/main.js) 🚧 (Crab Cups)
-- ~~day-24/main.js~~
+- [day-24/main.js](./day-24/main.js) 🚧 (Lobby Layout)
 - ~~day-25/main.js~~
 
 ## How to run?
